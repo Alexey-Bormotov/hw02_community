@@ -9,7 +9,7 @@ class Group(models.Model):
     title = models.CharField(max_length=200)  # Название группы
     slug = models.SlugField(unique=True)  # Адрес группы
     description = models.TextField()  # Описание группы
-    
+
     # Метод возвращает имя сообщества
     def __str__(self):
         return self.title
