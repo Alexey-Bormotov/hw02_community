@@ -28,7 +28,7 @@
           {% endif %}
         </li>
       </ul>
-      <p>{{ post.text }}</p>
+      <p>{{ post.text|linebreaksbr }}</p>
 
       <!-- Если у поста указана группа, то делаем ссылку на все посты -->
       {% if post.group %}
