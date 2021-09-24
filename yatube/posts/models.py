@@ -29,9 +29,13 @@ class Post(models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        related_name='group_posts'
+        related_name='posts'
     )
 
     # Сортировка по дате публикации объектов Post
     class Meta:
         ordering = ['-pub_date']
+
+    # Метод возвращает текст поста
+    def __str__(self):
+        return self.text

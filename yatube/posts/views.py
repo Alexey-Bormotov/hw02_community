@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
-# Количество отображаемых постов на страницах
 SHOW_POSTS = 10
 
 
@@ -19,7 +18,7 @@ def index(request):
 def group_posts(request, slug):
     template = 'posts/group_list.html'  # Шаблон
     group = get_object_or_404(Group, slug=slug)  # Группа
-    posts = group.group_posts.all()[:SHOW_POSTS]  # Посты
+    posts = group.posts.all()[:SHOW_POSTS]  # Посты
     context = {
         'group': group,
         'posts': posts

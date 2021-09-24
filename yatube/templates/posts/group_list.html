@@ -7,8 +7,6 @@
 {% block content %}
   <div class="container py-5">
 
-    <!-- Отображение 10 последних записей на странице группы -->
-    <!-- переданных в виде списка в переменной posts -->
     {% for post in posts %}
       {% if forloop.first %} <h1>{{ post.group }}</h1> {% endif %}
       <ul>
@@ -19,13 +17,11 @@
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
       </ul>
-      <p>{{ post.text|linebreaksbr }}</p>
+      <p>{{ post|linebreaksbr }}</p>
 
-      <!-- Если пост не последний, то рисуем разделительную линию -->
       {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
 
-    <!-- Ссылка на главную страницу -->
     <a href="{% url 'posts:index' %}">На главную</a>
 
   </div>
